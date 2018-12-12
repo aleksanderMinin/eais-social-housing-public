@@ -1,0 +1,62 @@
+<div class="master-page__content-title">
+  <div class="master-page__container master-page__container--centered">
+    <h1 class="typography typography--headline1">
+      Нормативные акты
+    </h1>
+  </div>
+</div>
+<div class="master-page__content-navigation-bar">
+  <div class="master-page__container master-page__container--centered master-page__container--full-height">
+    <div class="navigation master-page__content-navigation">
+      {{#each-in model as |queueType queueTypeData|}}
+        <a
+          class="navigation__tab {{if (eq queueType activeQueueType) "navigation__tab--active"}}"
+          role="button"
+          {{action "onQueueTypeNavigationTabClick" (hash queueType=queueType queueTypeData=queueTypeData) on="click"}}
+        >
+          {{queueTypeData.caption}}
+        </a>
+      {{/each-in}}
+    </div>
+  </div>
+</div>
+<div class="master-page__container master-page__container--centered">
+  {{#each-in model as |queueType queueTypeData|}}
+    <div class="news {{if (eq queueType activeQueueType) "news--active"}}">
+      {{#each queueTypeData.normativeActs as |normativeAct|}}
+        <a href={{normativeAct.fileJson.fileUrl}} title={{normativeAct.caption}} class="news__news-article">
+          <img class="news__news-article-image normative-acts__normative-act-image" src={{normativeAct.imageSrc}} alt="Изображение отсутствует">
+          <div class="news__news-article-queue-type">
+            {{normativeAct.queueType}}
+          </div>
+          <div class="news__news-article-caption">
+            {{normativeAct.caption}}
+          </div>
+          <div class="news__news-article-publication-date">
+            {{moment-format normativeAct.publicationDate "LLL"}}
+          </div>
+        </a>
+      {{/each}}
+      {{#each-in queueTypeData.queueSubtypes as |queueSubtype queueSubtypeData|}}
+        <h2 class="typography typography--headline2">
+          {{queueSubtype}}
+        </h2>
+        {{#each queueSubtypeData.normativeActs as |normativeAct|}}
+          <a href={{normativeAct.fileJson.fileUrl}} title={{normativeAct.caption}} class="news__news-article">
+            <img class="news__news-article-image normative-acts__normative-act-image" src={{normativeAct.imageSrc}} alt="Изображение отсутствует">
+            <div class="news__news-article-queue-type">
+              {{normativeAct.queueType}}
+            </div>
+            <div class="news__news-article-caption">
+              {{normativeAct.caption}}
+            </div>
+            <div class="news__news-article-publication-date">
+              {{moment-format normativeAct.publicationDate "LLL"}}
+            </div>
+          </a>
+        {{/each}}
+      {{/each-in}}
+    </div>
+  {{/each-in}}
+</div>
+{{outlet}}

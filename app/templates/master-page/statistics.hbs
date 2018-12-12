@@ -1,0 +1,64 @@
+<div class="master-page__content-title">
+  <div class="master-page__container master-page__container--centered">
+    <h1 class="typography typography--headline1">
+      Статистика
+    </h1>
+  </div>
+</div>
+
+<div class="master-page__content-navigation-bar">
+  <div class="master-page__container master-page__container--centered master-page__container--full-height">
+    <div class="navigation master-page__content-navigation">
+      {{#each-in queueTypes as |queueType caption|}}
+        <a
+          class="navigation__tab {{if (eq queueType activeQueueType) "navigation__tab--active"}}"
+          role="button"
+          {{action "onQueueTypeNavigationTabClick" queueType on="click"}}
+        >
+          {{!-- TODO диаграммы по программам  --}}
+          {{caption}}
+        </a>
+      {{/each-in}}
+    </div>
+  </div>
+</div>
+
+<div class="master-page__container master-page__container--centered">
+  <div class="statistics__title">
+    <div class="statistics__title-caption">
+      <h3>Обеспечение жильем {{get queueCaptions activeQueueType}} в {{selectedYear}} году</h3>
+    </div>
+    <div  class="statistics__title-year-select">
+      {{!-- TODO datePpicker --}}
+      {{!-- {{#material-menu
+        buttonClass="button--dropdown"
+        items=years
+        selectedIntemIndex=(action "changeYear")
+      }}
+        Выбрать год {{fa-icon "arrow-down" class="button__icon"}}
+      {{/material-menu}} --}}
+    </div>
+  </div>
+  {{#if (eq "WW2Veterans" activeQueueType)}}
+    <div class="statistics__diagram-container">
+      <h4>Статистика обеспечения жильем</h4>
+      <div class="statistics__diagram-content">
+        {{high-charts chartOptions=chartWW2VeteransHousingOptions content=chartWW2VeteransHousingData}}
+      </div>
+    </div>
+
+    <div class="statistics__diagram-container">
+      <h4>Выделенные средства на программу</h4>
+      <div class="statistics__diagram-content">
+        {{high-charts chartOptions=chartWW2VeteransMoneyOptions content=chartWW2VeteransMoneyData}}
+      </div>
+    </div>
+  {{else}}
+    <div class="statistics__diagram-container">
+      <h4>Статистика по данной очереди отсутствует</h4>
+    </div>
+  {{/if}}
+
+</div>
+
+{{outlet}}

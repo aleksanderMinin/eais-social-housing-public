@@ -1,0 +1,10 @@
+.news {
+  &__show-more-button {
+    display: none;
+    width: 100%;
+
+    &--active {
+      display: block;
+    }
+  }
+}

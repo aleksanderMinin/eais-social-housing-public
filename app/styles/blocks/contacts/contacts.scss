@@ -1,0 +1,83 @@
+.contacts {
+  padding: $contacts__padding;
+  margin-bottom: -1 * $master-page__content__margin-bottom;
+  background-color: $color__surface;
+  color: $color__on-surface;
+
+  &__container {
+    display: flex;
+    align-items: flex-start;
+    margin-bottom: $contacts__padding;
+  }
+
+  &__search {
+    flex: 1;
+    margin-right: $contacts__padding;
+  }
+
+  &__after-search {
+    flex: 2;
+    margin-left: $contacts__padding;
+  }
+
+  &__search-text-field {
+    width: 100%;
+  }
+
+  &__organizations {
+    flex: 1;
+    margin-right: $contacts__padding;
+    background-color: $color__background;
+    color: $color__on-background;
+  }
+
+  &__organization-specialists {
+    flex: 2;
+    margin-left: $contacts__padding;
+    background-color: $color__background;
+    color: $color__on-background;
+
+    display: flex;
+    flex-direction: column;
+  }
+
+  &__organization-name {
+    position: relative;
+    padding: 20px 0 20px 0;
+    margin: 0 20px 0 20px;
+    background-color: $color__background;
+    color: $color__on-background;
+    border-bottom: 2px solid $color__surface;
+    font-weight: 500;
+  }
+
+  &__organization-specialist {
+    margin: 20px;
+    font-weight: 500;
+
+    &:not(:last-child) {
+      margin-bottom: 40px;
+    }
+  }
+
+  &__organization-specialist-full-name {
+    font-size: 2 * $typography__font-size;
+    font-weight: 700;
+  }
+
+  &__organization-specialist-position {
+
+  }
+
+  &__organization-specialist-additional-information {
+    min-height: $contacts__padding;
+  }
+
+  &__organization-specialist-phone {
+
+  }
+
+  &__organization-specialist-email {
+
+  }
+}

@@ -1,0 +1,81 @@
+<div class="master-page__content-title">
+  <div class="master-page__container master-page__container--centered">
+    <h1 class="typography typography--headline1">
+      Новости
+    </h1>
+  </div>
+</div>
+<div class="master-page__content-navigation-bar">
+  <div class="master-page__container master-page__container--centered master-page__container--full-height">
+    <div class="navigation master-page__content-navigation">
+      {{#each-in model as |queueType queueTypeData|}}
+        <a
+          class="navigation__tab {{if (eq queueType activeQueueType) "navigation__tab--active"}}"
+          role="button"
+          {{action "onQueueTypeNavigationTabClick" (hash queueType=queueType queueTypeData=queueTypeData) on="click"}}
+        >
+          {{queueTypeData.caption}}
+        </a>
+      {{/each-in}}
+    </div>
+  </div>
+</div>
+<div class="master-page__container master-page__container--centered">
+  {{#each-in model as |queueType queueTypeData|}}
+    <div class="news {{if (eq queueType activeQueueType) "news--active"}}">
+      {{#each queueTypeData.newsArticles as |newsArticle index|}}
+        {{#if (eq index 0)}}
+          <a href={{href-to "master-page.news.article" newsArticle}} class="news__main-news-article">
+            <img class="news__main-news-article-image" src={{newsArticle.imageSrc}} alt="Изображение отсутствует">
+            <div class="news__main-news-article-label">
+              Главная новость
+            </div>
+            <div class="news__main-news-article-content">
+              <div class="news__main-news-article-caption">
+                {{newsArticle.fixedCaption}}
+              </div>
+              <div class="news__main-news-article-publication-date">
+                {{moment-format newsArticle.publicationDate "LLL"}}
+              </div>
+            </div>
+          </a>
+        {{else}}
+          <a href={{href-to "master-page.news.article" newsArticle.id}} class="news__news-article">
+            <img class="news__news-article-image" src={{newsArticle.imageSrc}} alt="Изображение отсутствует">
+            <div class="news__news-article-queue-type">
+              {{newsArticle.queueType}}
+            </div>
+            <div class="news__news-article-caption">
+              {{newsArticle.fixedCaption}}
+            </div>
+            <div class="news__news-article-publication-date">
+              {{moment-format newsArticle.publicationDate "LLL"}}
+            </div>
+          </a>
+        {{/if}}
+      {{/each}}
+      {{#if (and (eq queueTypeData.existingNewsArticlesCount 0) (eq queueTypeData.newsArticles.length 0))}}
+        <div class="news__news-article news__news-article--no-news">
+          Ни одной новости еще не было опубликовано
+        </div>
+      {{/if}}
+    </div>
+    {{#let
+      (eq queueType activeQueueType)
+      queueTypeData.isLoading
+      (and (gte queueTypeData.existingNewsArticlesCount 0) (gt queueTypeData.existingNewsArticlesCount queueTypeData.newsArticles.length))
+    as |isActive isLoading moreNewsAreAvailable|
+    }}
+      {{#if (or isLoading moreNewsAreAvailable)}}
+        <a
+          class="button button--outlined {{if isLoading "button--loading"}} news__show-more-button {{if isActive "news__show-more-button--active"}}"
+          role="button"
+          {{action "onShowMoreButtonClick" (hash queueType=queueType queueTypeData=queueTypeData) on="click"}}
+        >
+          Показать еще
+        </a>
+      {{/if}}
+    {{/let}}
+  {{/each-in}}
+</div>
+{{outlet}}

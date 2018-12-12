@@ -1,0 +1,44 @@
+<div class="mdc-dialog news-article-dialog"
+     role="alertdialog"
+     aria-modal="true"
+     aria-labelledby="my-dialog-title"
+     aria-describedby="my-dialog-content">
+  <div class="mdc-dialog__container">
+    <div class="mdc-dialog__surface">
+      <h2 class="mdc-dialog__title">{{model.fixedCaption}}</h2>
+      <div class="mdc-dialog__content">
+        <div class="news-article-dialog__image-wrapper">
+          <img class="news-article-dialog__image" src={{model.imageSrc}} alt="Изображение отсутствует">
+          <div class="news-article-dialog__image-toolbar">
+            <a class="button news-article-dialog__return-button" href={{href-to "master-page.news"}}>
+              {{fa-icon "long-arrow-alt-left" class="button__icon button__icon--left-aligned"}}
+              Все новости
+            </a>
+            {{#if model.fixedImage.fileUrl}}
+              <a class="button news-article-dialog__download-button" href={{model.fixedImage.fileUrl}}>
+                Скачать изображение
+                {{fa-icon "arrow-down" class="button__icon button__icon--right-aligned"}}
+              </a>
+            {{/if}}
+          </div>
+          <div class="news-article-dialog__image-content">
+            <div class="news-article-dialog__queue-type">
+              {{model.queueType}}
+            </div>
+            <div class="news-article-dialog__publication-date">
+              {{moment-format model.publicationDate "LL"}}
+            </div>
+          </div>
+        </div>
+        <div class="news-article-dialog__content-wrapper">
+          {{model.fixedContent}}
+        </div>
+      </div>
+      <footer class="mdc-dialog__actions">
+        <button type="button" class="mdc-button mdc-dialog__button news-article-dialog__button" data-mdc-dialog-action="no">Отмена</button>
+        <button type="button" class="mdc-button mdc-dialog__button news-article-dialog__button" data-mdc-dialog-action="yes">Ок</button>
+      </footer>
+    </div>
+  </div>
+  <div class="mdc-dialog__scrim"></div>
+</div>

@@ -1,0 +1,13 @@
+.news {
+  display: none;
+  flex-direction: row;
+  flex-wrap: wrap;
+  margin-top: 34px;
+  margin-right: -$news__news-article__margin;
+  margin-bottom: 34px;
+  margin-left: -$news__news-article__margin;
+
+  &--active {
+    display: flex;
+  }
+}

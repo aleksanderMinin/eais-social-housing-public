@@ -1,0 +1,26 @@
+.scroll-up-button {
+  display: none;
+  position: fixed;
+  bottom: 60px;
+  right: 0;
+  z-index: 6;
+  font-size: 0.95 * $typography__font-size;
+  font-weight: 400;
+  line-height: 0.6 * $typography__line-height;
+  text-align: center;
+  text-decoration: none;
+  cursor: pointer;
+  outline: none;
+  color: $color__neutral;
+  transition: color 0.3s;
+  transform: rotate(-90deg);
+  @include user-select__none();
+
+  &:hover {
+    color: $color__neutral--dark;
+  }
+
+  &__icon-up {
+    transform: translate(5px, 2px);
+  }
+}

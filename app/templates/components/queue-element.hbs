@@ -1,0 +1,71 @@
+<div class="queue-element {{if (eq index 0) "queue-element--first"}}">
+  <div class="queue-element__container">
+    <div class="queue-element__title">
+      <div class="queue-element__title-date">
+        {{#if model}}
+          {{moment-format model.dataSostoianiia "D MMMM YYYY"}} года
+        {{/if}}
+      </div>
+      <div class="queue-element__title-queue-number {{unless model "queue-element__title-queue-number--none"}}">
+        {{#if model}}
+          Номер в очереди {{model.queueInfo.nomer}}
+        {{else}}
+          Данных по претенденту не найдено
+        {{/if}}
+      </div>
+      <a class="queue-element__title-row" role="button" {{action "toggleElement" this}}>
+        {{#if (and (not-eq index 0) model)}}
+          {{#if showElement}}
+            {{fa-icon "chevron-down" class="button__icon"}}
+          {{else}}
+            {{fa-icon "chevron-up" class="button__icon"}}
+          {{/if}}
+        {{/if}}
+      </a>
+    </div>
+    {{#if (or (eq index 0) showElement)}}
+      <div class="divider" />
+      <div>
+        <p>Льготная категория - "{{model.kategoriia}}"</p>
+      </div>
+      <div class="divider" />
+
+      <div class="queue-element__content">
+        {{#if inQueue}}
+          {{#each model.queueInfo.pered as |pretendent|}}
+            <p>Претендентов с категорией "{{pretendent.kategoriia}}" перед семьей: {{pretendent.count}}</p>
+          {{/each}}
+          <p>Претендентов, с датой включения в Программу ранее, чем Вы: {{model.queueInfo.ranee}}</p>
+          <p>Количество выданных свидетельств/сертификатов с начала года: {{model.queueInfo.vidano}}</p>
+        {{/if}}
+        {{#if inList}}
+          <p>Включен в предварительный список претендентов на получение свидетельства/сертификата по<br>программе {{model.infOcheredNaDatu.programma}} в {{moment-format model.dataSostoianiia "YYYY"}} году в муниципальном образовании {{model.territoriiaOcheredi}}.</p>
+        {{/if}}
+        {{#if isImplemented}}
+          <p>Право по программе {{model.infOcheredNaDatu.programma}} реализовано в {{moment-format model.dataSostoianiia "YYYY"}} году в муниципальном образовании {{model.territoriiaOcheredi}}.</p>
+        {{/if}}
+        {{#if isExcluded}}
+          <p>Претендент был исключен из программы {{model.infOcheredNaDatu.programma}} {{moment-format model.dataSostoianiia "YYYY"}} по причине {{model.prichinaIscliucheniia}}</p>
+        {{/if}}
+      </div>
+    {{/if}}
+
+    {{#if (eq index 0)}}
+      <div class="queue-element__linchnost-info">
+        <p>Детальный просмотр данных по человеку {{fa-icon "arrow-right" class="button__icon button__icon--rotate-45-alt"}}</p>
+      </div>
+
+    {{/if}}
+  </div>
+  {{#if (eq index 0)}}
+    <a class="queue-element__calendar" role="button" {{action "showCalendar"}}>
+      {{fa-icon "calendar-alt" prefix="far" class="button__icon"}} Показать данные за период
+      {{#if selectPeriod}}
+        {{!-- TODO --}}
+        {{!-- С {{bootstrap-datepicker value=dateValue}} по {{bootstrap-datepicker value=dateValue classNames="second-calendar"}} --}}
+        {{fa-icon "sync" prefix="far" class="button__icon" click=(action "getByPeriod")}}
+      {{/if}}
+    </a>
+  {{/if}}
+</div>
+{{yield}}

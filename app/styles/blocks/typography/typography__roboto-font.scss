@@ -1,0 +1,34 @@
+@mixin roboto-font($type, $weight, $style) {
+  $font-family: 'Roboto';
+  $font-path: '/assets/fonts/roboto';
+
+  @font-face {
+      font-family: '#{$font-family}';
+      src: url('#{$font-path}/#{$font-family}-#{$type}.woff2') format('woff2'),
+           url('#{$font-path}/#{$font-family}-#{$type}.woff') format('woff');
+      font-weight: $weight;
+      font-style: $style;
+  }
+
+  @font-face {
+      font-family: '#{$font-family}-#{$type}';
+      src: url('#{$font-path}/#{$font-family}-#{$type}.woff2') format('woff2'),
+           url('#{$font-path}/#{$font-family}-#{$type}.woff') format('woff');
+  }
+}
+
+// В каталоге /assets/fonts/roboto/ содержится весь набор Roboto-шрифтов.
+// Здесь включаем только те, которые действительно используются в приложении.
+// При необходимомти можно раскомментировать остальные @include-директивы.
+@include roboto-font('Regular', 400, normal);
+//@include roboto-font('RegularItalic', 400, italic);
+//@include roboto-font('Light', 300, normal);
+//@include roboto-font('LightItalic', 300, italic);
+//@include roboto-font('Thin', 100, normal);
+//@include roboto-font('ThinItalic', 100, italic);
+@include roboto-font('Medium', 500, normal);
+//@include roboto-font('MediumItalic', 500, italic);
+@include roboto-font('Bold', 700, normal);
+//@include roboto-font('BoldItalic', 700, italic);
+@include roboto-font('Black', 900, normal);
+//@include roboto-font('BlackItalic', 900, italic);

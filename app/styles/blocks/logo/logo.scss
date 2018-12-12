@@ -1,0 +1,14 @@
+.logo {
+  display: flex;
+  align-items: center;
+  padding-left: 45px;
+  margin: auto 0 auto 0;
+  height: 86px;
+  font-size: 1.2 * $typography__font-size;
+  font-weight: 700;
+  line-height: 0.8 * $typography__line-height;
+  background-image: url(/assets/images/blocks/logo/logo.png);
+  background-repeat: no-repeat;
+  background-position: left center;
+  color: $color__on-background;
+}

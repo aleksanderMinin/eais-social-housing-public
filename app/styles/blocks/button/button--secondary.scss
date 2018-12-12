@@ -1,0 +1,12 @@
+.button {
+  &--secondary {
+    background-color: $color__secondary;
+    color: $color__on-secondary;
+    transition: background-color 0.3s;
+
+    &:hover {
+      background-color: $color__secondary--light;
+      color: inherit;
+    }
+  }
+}

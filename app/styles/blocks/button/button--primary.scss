@@ -1,0 +1,12 @@
+.button {
+  &--primary {
+    background-color: $color__primary;
+    color: $color__on-primary;
+    transition: background-color 0.3s;
+
+    &:hover {
+      background-color: $color__primary--light;
+      color: inherit;
+    }
+  }
+}

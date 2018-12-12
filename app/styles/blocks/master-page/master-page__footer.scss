@@ -1,0 +1,27 @@
+.master-page {
+  &__footer {
+    flex-shrink: 0;
+  }
+
+  &__footer-navigation-bar {
+    background-color: $color__surface;
+  }
+
+  &__footer-bottom-bar {
+    height: 130px;
+    background-color: $color__surface;
+    border-top: 1px solid $color__neutral--light;
+  }
+
+  &__footer-support {
+    margin: auto;
+    height: 80px;
+    padding-top: 23px;
+  }
+
+  &__footer-contacts {
+    margin: auto 0 auto 0;
+    height: 80px;
+    padding-top: 23px;
+  }
+}

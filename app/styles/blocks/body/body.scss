@@ -1,0 +1,33 @@
+.body {
+  margin: 0;
+  padding: 0;
+}
+
+::selection {
+  background-color: $color__secondary;
+  color: $color__on-secondary;
+  text-shadow: none;
+}
+
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+  background-color: transparent;
+}
+
+::-webkit-scrollbar-track {
+  background-color: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  border-radius: 8px;
+  background-color: $color__neutral;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background-color: $color__neutral;
+}
+
+::-webkit-scrollbar-thumb:active {
+  background-color: $color__neutral--dark;
+}

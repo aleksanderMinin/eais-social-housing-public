@@ -1,0 +1,15 @@
+.button {
+  &--loading {
+    pointer-events : none;
+    color: transparent;
+    transition: none;
+
+    &:hover {
+      color: transparent;
+    }
+
+    &:before {
+      @include loader($button--loading__loader__size);
+    }
+  }
+}

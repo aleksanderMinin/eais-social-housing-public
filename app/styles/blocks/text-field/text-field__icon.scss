@@ -1,0 +1,11 @@
+.text-field {
+  &__icon {
+    &--left-aligned {
+      margin-right: $text-field__padding;
+    }
+
+    &--right-aligned {
+      margin-left: $text-field__padding;
+    }
+  }
+}

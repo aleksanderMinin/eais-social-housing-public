@@ -1,0 +1,32 @@
+.text-field {
+  display: flex;
+  padding: $text-field__padding;
+  align-items: center;
+  border: 1px solid $color__neutral;
+  border-radius: 2px;
+  color: $color__neutral;
+  max-width: calc(100% - 2 * #{$text-field__padding});
+
+  &__input {
+    width: 100%;
+    height: 20px;
+    padding: 0;
+    margin: 0;
+    border: 0;
+    outline: none;
+    background: none;
+    color: $color__neutral;
+    font-family: $typography__font-family;
+    font-size: $typography__font-size;
+    font-weight: 400;
+
+    &:focus {
+      color: $color__neutral--dark;
+    }
+  }
+
+  &:focus-within {
+    color: $color__neutral--dark;
+    border-color: $color__neutral--dark;
+  }
+}

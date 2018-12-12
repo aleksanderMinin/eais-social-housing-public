@@ -1,0 +1,63 @@
+.master-page {
+  background-color: $color__background;
+
+  &__header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    width: 100%;
+    z-index: 1;
+  }
+
+  &__header-top-bar {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    height: $master-page__header-top-bar__height;
+    padding: 0 20px 0 20px;
+    background-color: $color__primary;
+    color: $color__on-primary;
+  }
+
+  &__header-navigation-bar {
+    height: $master-page__header-navigation-bar__height;
+    padding: 0 32px;
+    background-color: $color__background;
+    border-bottom: 2px solid $color__surface;
+  }
+
+  &__header-logo {
+    float: left;
+  }
+
+  &__header-blockchain-logo {
+    margin: auto;
+  }
+
+  &__header-button {
+    margin: auto 0 auto 0;
+  }
+
+  &__header-sign-in-button {
+    width: 200px;
+    text-align: right;
+  }
+
+  &__header-sign-out-button {
+    width: 200px;
+    text-align: right;
+  }
+
+  &__header-navigation {
+    float: right;
+  }
+
+  &__header-information-message {
+    width: 100%;
+  }
+
+  &__header-error-message {
+    width: 100%;
+  }
+}

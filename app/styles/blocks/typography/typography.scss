@@ -1,0 +1,20 @@
+.typography {
+  font-family: $typography__font-family;
+  font-size: $typography__font-size;
+  font-weight: 400;
+  line-height: $typography__line-height;
+
+  &--headline1 {
+    margin: 20px 0 20px 0;
+    font-size: 3 * $typography__font-size;
+    font-weight: 700;
+    line-height: 2 * $typography__line-height;
+  }
+
+  &--headline2 {
+    margin: 10px 0 10px 0;
+    font-size: 2 * $typography__font-size;
+    font-weight: 700;
+    line-height: 1.5 * $typography__line-height;
+  }
+}

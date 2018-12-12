@@ -1,0 +1,106 @@
+<div class="typography master-page">
+  <div class="master-page__header">
+    <div class="master-page__header-top-bar">
+      <a class="button master-page__header-button" href="http://minsoc.permkrai.ru/">
+        {{fa-icon "long-arrow-alt-left" class="button__icon button__icon--left-aligned"}}
+        Перейти на основной портал
+      </a>
+      <div class="blockchain-logo master-page__header-blockchain-logo">
+      </div>
+      {{!-- TODO: Удалить аддон ember-href-to и is-active-хэлпер, когда выйдет версия со стоковыми хэлперами https://github.com/emberjs/rfcs/pull/391 --}}
+      {{!-- TODO: Воспроизвести ошибку с link-to на ember-twiddle и дописать в issue https://github.com/emberjs/ember.js/issues/12945 --}}
+      <a href={{href-to "master-page.contacts"}} class="button master-page__header-button">
+        Контакты
+      </a>
+      {{#if session.isSignedIn}}
+        <a
+          class="button master-page__header-button master-page__header-sign-out-button"
+          role="button"
+          {{action "onSignOutButtonClick" on="click"}}
+        >
+          {{session.userId}}
+          {{fa-icon "sign-out-alt" class="button__icon button__icon--right-aligned"}}
+        </a>
+      {{else}}
+        <a
+          class="button master-page__header-button master-page__header-sign-in-button"
+          role="button"
+          {{action "onSignInButtonClick" on="click"}}
+        >
+          {{fa-icon "sign-in-alt" class="button__icon button__icon--left-aligned"}}
+          Войти в личный кабинет
+        </a>
+      {{/if}}
+    </div>
+    <div class="master-page__header-navigation-bar">
+      <a href={{href-to "application"}} class="link link--no-hover logo master-page__header-logo">
+        Министерство социального
+        <br>
+        развития Пермского края
+      </a>
+      <div class="navigation master-page__header-navigation">
+        <a href={{href-to "master-page.news"}} class="navigation__tab {{if (is-active "master-page.news") "navigation__tab--active"}}">
+          Новости
+        </a>
+        <a href={{href-to "master-page.statistics"}} class="navigation__tab {{if (is-active "master-page.statistics") "navigation__tab--active"}}">
+          Статистика
+        </a>
+        <a href={{href-to "master-page.services"}} class="navigation__tab {{if (is-active "master-page.services") "navigation__tab--active"}}">
+          Сервисы
+        </a>
+        <a href={{href-to "master-page.normative-acts"}} class="navigation__tab {{if (is-active "master-page.normative-acts") "navigation__tab--active"}}">
+          Нормативные акты
+        </a>
+        <a href={{href-to "master-page.queue-position"}} class="navigation__tab {{if (is-active "master-page.queue-position") "navigation__tab--active"}}">
+          Положение в очереди
+        </a>
+      </div>
+    </div>
+    {{#message-card
+      class="message-card--information master-page__header-information-message"
+      visible=information
+      close=(action "onHeaderInformationMessageClose")
+    }}
+      {{informationMessage}}
+    {{/message-card}}
+    {{#message-card
+      class="message-card--error master-page__header-error-message"
+      visible=error
+      close=(action "onHeaderErrorMessageClose")
+    }}
+      {{errorMessage}}
+    {{/message-card}}
+  </div>
+  <div class="master-page__content">
+    {{outlet}}
+  </div>
+  <div class="master-page__footer">
+    <div class="master-page__footer-navigation-bar">
+      <div class="master-page__container master-page__container--centered">
+      </div>
+    </div>
+    <div class="master-page__footer-bottom-bar">
+      <div class="master-page__container master-page__container--centered master-page__container--full-height master-page__container--flex">
+        <a href={{href-to "application"}} class="link link--no-hover logo master-page__footer-logo">
+          Министерство социального
+          <br>
+          развития Пермского края
+        </a>
+        <div class="master-page__footer-support">
+          Техническая поддержка сайта:
+          <br>
+          (342) 238 52 86 / (342) 238 52 87
+        </div>
+        <div class="master-page__footer-contacts">
+          г. Пермь, ул. Ленина, 51
+          <br>
+          тел. (342) 217 77 40, <a href="mailto:info@social.permkrai.ru" class="link">info@social.permkrai.ru</a>
+        </div>
+      </div>
+    </div>
+  </div>
+  {{#scroll-up-button}}
+    наверх
+    {{fa-icon "arrow-right" class="scroll-up-button__icon-up"}}
+  {{/scroll-up-button}}
+</div>

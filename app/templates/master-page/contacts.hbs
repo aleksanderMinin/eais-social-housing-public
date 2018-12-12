@@ -1,0 +1,48 @@
+<div class="master-page__content-title">
+  <div class="master-page__container master-page__container--centered">
+    <h1 class="typography typography--headline1">
+      Контакты
+    </h1>
+  </div>
+</div>
+<div class="contacts">
+  <div class="contacts__container master-page__container master-page__container--centered">
+    <div class="contacts__search">
+      <div class="text-field contacts__search-text-field">
+        {{fa-icon "search" class="text-field__icon text-field__icon--left-aligned"}}
+        {{input
+          class="text-field__input"
+          type="text"
+          placeholder="Поиск"
+          keyUp=(action "onSearchTextFieldKeyUp")
+        }}
+      </div>
+    </div>
+    <div class="contacts__after-search">
+    </div>
+  </div>
+  <div class="contacts__container master-page__container master-page__container--centered">
+    {{#if (gt model.length 0)}}
+      <div class="list contacts__organizations">
+        {{#each model as |organization|}}
+          <a
+            href={{href-to "master-page.contacts.organization" organization}}
+            class="list__item {{if (is-active "master-page.contacts.organization" organization) "list__item--active"}}"
+          >
+            {{organization.name}}
+          </a>
+        {{/each}}
+      </div>
+      <div class="contacts__organization-specialists">
+        <div class="contacts__organization-name">
+          {{activeOrganization.name}}
+        </div>
+        {{outlet}}
+      </div>
+    {{else}}
+      <div class="contacts__no-contact-information">
+        Контактная информация еще не опубликована
+      </div>
+    {{/if}}
+  </div>
+</div>

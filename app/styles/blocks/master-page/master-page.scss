@@ -1,0 +1,7 @@
+.master-page {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  background-color: $color__background;
+  color: $color__on-background;
+}

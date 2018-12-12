@@ -1,0 +1,13 @@
+
+<div class="mdc-menu-surface--anchor">
+  <button id="menu-button" class="mdc-button {{buttonClass}}" {{action "open"}}>{{yield}}</button>
+  <div class="mdc-menu mdc-menu-surface" tabindex="-1">
+    <ul class="mdc-list" role="menu" aria-hidden="true" aria-orientation="vertical">
+      {{#each items as |item|}}
+        <li class="mdc-list-item" role="menuitem">
+          <span class="mdc-list-item__text">{{item}}</span>
+        </li>
+      {{/each}}
+    </ul>
+  </div>
+</div>

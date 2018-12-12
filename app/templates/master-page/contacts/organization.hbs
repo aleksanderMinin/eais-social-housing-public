@@ -1,0 +1,30 @@
+{{#if (gt model.length 0)}}
+  {{#each model as |organizationSpecialist|}}
+    <div class="contacts__organization-specialist">
+      <div class="contacts__organization-specialist-full-name">
+        {{organizationSpecialist.fullName}}
+      </div>
+      <div class="contacts__organization-specialist-position">
+        {{organizationSpecialist.position}}
+      </div>
+      <div class="contacts__organization-specialist-additional-information">
+        {{organizationSpecialist.additionalInforation}}
+      </div>
+      {{#if organizationSpecialist.hasPhone}}
+        <div class="contacts__organization-specialist-phone">
+          {{organizationSpecialist.phone}}
+        </div>
+      {{/if}}
+      {{#if organizationSpecialist.hasEmail}}
+        <a href="mailto:{{organizationSpecialist.email}}" class="link contacts__organization-specialist-email">
+          {{organizationSpecialist.email}}
+        </a>
+      {{/if}}
+    </div>
+  {{/each}}
+{{else}}
+  <div class="contacts__no-contact-information">
+    Контактная информация еще не опубликована
+  </div>
+{{/if}}
+{{outlet}}

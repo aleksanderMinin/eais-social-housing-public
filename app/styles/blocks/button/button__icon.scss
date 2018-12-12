@@ -1,0 +1,16 @@
+.button {
+  &__icon {
+    cursor: pointer;
+    &--left-aligned {
+      margin-right: $button__icon__margin;
+    }
+
+    &--right-aligned {
+      margin-left: $button__icon__margin;
+    }
+
+    &--rotate-45-alt {
+      transform: rotate(-45deg);
+    }
+  }
+}

@@ -1,0 +1,21 @@
+.vertical-bar {
+  &__item {
+    display: block;
+    padding: 16px;
+    font-weight: bold;
+    margin-bottom: 4px;
+    border-left: 4px solid transparent;
+
+    &:last-child {
+      margin-bottom: 0px;
+    }
+
+    &:hover {
+      border-color: $color__primary;
+    }
+
+    &--active {
+      border-color: $color__primary;
+    }
+  }
+}

@@ -1,0 +1,14 @@
+.queue-element__container {
+  background-color: $color__neutral--pale;
+  padding-top: 16px;
+  padding-bottom: 16px;
+
+  & > div {
+    padding-right: 16px;
+    padding-left: 16px;
+  }
+
+  p {
+    margin: 0px;
+  }
+}

@@ -1,0 +1,97 @@
+@import './variables';
+@import './blocks/blockchain-logo/variables';
+@import './blocks/body/variables';
+@import './blocks/button/variables';
+@import './blocks/contacts/variables';
+@import './blocks/link/variables';
+@import './blocks/list/variables';
+@import './blocks/logo/variables';
+@import './blocks/master-page/variables';
+@import './blocks/mdc-dialog/variables';
+@import './blocks/message-card/variables';
+@import './blocks/navigation/variables';
+@import './blocks/news/variables';
+@import './blocks/news-article-dialog/variables';
+@import './blocks/normative-acts/variables';
+@import './blocks/scroll-up-button/variables';
+@import './blocks/text-field/variables';
+@import './blocks/typography/variables';
+
+@import './mixins';
+
+@import './blocks/blockchain-logo/blockchain-logo';
+
+@import './blocks/body/body';
+
+@import './blocks/button/button';
+@import './blocks/button/button--primary';
+@import './blocks/button/button--secondary';
+@import './blocks/button/button--outlined';
+@import './blocks/button/button--loading';
+@import './blocks/button/button--disabled';
+@import './blocks/button/button__icon';
+@import './blocks/button/button--dropdown';
+
+@import './blocks/contacts/contacts';
+
+@import './blocks/link/link';
+
+@import './blocks/list/list';
+
+@import './blocks/logo/logo';
+
+@import './blocks/navigation/navigation';
+
+@import './blocks/master-page/master-page';
+@import './blocks/master-page/master-page__container';
+@import './blocks/master-page/master-page__content';
+@import './blocks/master-page/master-page__footer';
+@import './blocks/master-page/master-page__header';
+
+@import '@material/dialog/mdc-dialog';
+@import "@material/menu-surface/mdc-menu-surface";
+@import "@material/menu/mdc-menu";
+@import "@material/list/mdc-list";
+
+@import './blocks/mdc-dialog/mdc-dialog';
+
+@import './blocks/message-card/message-card';
+
+@import './blocks/news/news';
+@import './blocks/news/news__news-article';
+@import './blocks/news/news__main-news-article';
+@import './blocks/news/news__show-more-button';
+
+@import './blocks/news-article-dialog/news-article-dialog';
+
+@import './blocks/normative-acts/normative-acts';
+@import './blocks/normative-acts/normative-acts__normative-act';
+
+@import './blocks/scroll-up-button/scroll-up-button';
+
+@import './blocks/statistics/statistics__title';
+@import './blocks/text-field/text-field';
+@import './blocks/text-field/text-field__icon';
+
+@import './blocks/typography/typography';
+@import './blocks/typography/typography__roboto-font';
+
+@import './blocks/queue-position/queue-position__container';
+@import './blocks/queue-position/queue-position__content-container';
+@import './blocks/queue-position/queue-position__vertical-bar';
+
+@import './blocks/queue-element/queue-element';
+@import './blocks/queue-element/queue-element__calendar';
+@import './blocks/queue-element/queue-element__container';
+@import './blocks/queue-element/queue-element__content';
+@import './blocks/queue-element/queue-element__linchnost-info';
+@import './blocks/queue-element/queue-element__title-date';
+@import './blocks/queue-element/queue-element__title-queue-number';
+@import './blocks/queue-element/queue-element__title-row';
+@import './blocks/queue-element/queue-element__title';
+
+@import './blocks/datepicker/datepicker';
+
+@import './blocks/vertical-bar/vertical-bar__item';
+
+@import './blocks/divider/divider';

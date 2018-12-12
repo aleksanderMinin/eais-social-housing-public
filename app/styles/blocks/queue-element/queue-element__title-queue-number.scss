@@ -1,0 +1,9 @@
+.queue-element__title-queue-number {
+  font-weight: bold;
+  flex-basis: 33%;
+  text-align: center;
+
+  &--none {
+    flex-basis: 100%;
+  }
+}

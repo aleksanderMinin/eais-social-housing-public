@@ -1,0 +1,38 @@
+@mixin list__item--active {
+  &:before {
+    content: '';
+    position: absolute;
+    background-color: $color__primary;
+    width: 3px;
+    height: 100%;
+    left: 0;
+    top: 0;
+  }
+}
+
+.list {
+  display: flex;
+  flex-direction: column;
+
+  &__item {
+    @include base-link-style();
+    position: relative;
+    padding: 20px;
+    background-color: $color__background;
+    color: $color__on-background;
+    font-weight: 500;
+
+    &:not(:last-child) {
+      border-bottom: 2px solid $color__surface;
+    }
+
+    &--active {
+      @include list__item--active();
+      font-weight: 700;
+    }
+
+    &:hover {
+      @include list__item--active();
+    }
+  }
+}

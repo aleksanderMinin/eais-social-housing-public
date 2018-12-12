@@ -1,0 +1,16 @@
+.link {
+  @include base-link-style();
+  transition: color 0.3s;
+
+  &:hover {
+    color: $color__secondary;
+  }
+
+  &--no-hover {
+    transition: inherit;
+
+    &:hover {
+      color: inherit;
+    }
+  }
+}

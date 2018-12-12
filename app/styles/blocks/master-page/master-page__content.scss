@@ -1,0 +1,15 @@
+.master-page {
+  &__content {
+    flex: 1 0 auto;
+    margin-top: $master-page__header-top-bar__height + $master-page__header-navigation-bar__height + $master-page__content__margin-top;
+    margin-right: 0;
+    margin-bottom: $master-page__content__margin-bottom;
+    margin-left: 0;
+  }
+
+  &__content-navigation-bar {
+    height: 56px;
+    background-color: $color__background;
+    border-bottom: 2px solid $color__surface;
+  }
+}

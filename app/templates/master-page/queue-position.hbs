@@ -1,0 +1,65 @@
+<div class="master-page__content-title">
+  <div class="master-page__container master-page__container--centered">
+    <h1 class="typography typography--headline1">
+      Положение в очереди
+    </h1>
+  </div>
+</div>
+
+<div class="master-page__content-navigation-bar">
+</div>
+
+<div class="master-page__container master-page__container--centered">
+  <div class="queue-position__container">
+    <div class="queue-position__vertical-bar">
+      <a class="vertical-bar__item {{if (eq activeItem tQueueTypes.WW2Veterans) "vertical-bar__item--active"}}"
+        role="button"
+        {{action "activateItem" tQueueTypes.WW2Veterans}}
+      >
+        Обеспечение жильём ветеранов ВОВ
+      </a>
+      <a class="vertical-bar__item {{if (eq activeItem tQueueTypes.VeteransAndHandicapped) "vertical-bar__item--active"}}"
+        role="button"
+        {{action "activateItem" tQueueTypes.VeteransAndHandicapped}}
+      >
+        Обеспечение жильём ветеранов боевых действий и инвалидов
+      </a>
+      <a class="vertical-bar__item {{if (eq activeItem tQueueTypes.OrphanedChildren) "vertical-bar__item--active"}}"
+        role="button"
+        {{action "activateItem" tQueueTypes.OrphanedChildren}}
+      >
+        Обеспечение жильём реабилитированных
+      </a>
+      <a class="vertical-bar__item {{if (eq activeItem tQueueTypes.YoungFamilies) "vertical-bar__item--active"}}"
+        role="button"
+        {{action "activateItem" tQueueTypes.YoungFamilies}}
+      >
+        Обеспечение жильём молодых семей
+      </a>
+      <a class="vertical-bar__item {{if (eq activeItem tQueueTypes.Rehabilitated) "vertical-bar__item--active"}}"
+        role="button"
+        {{action "activateItem" tQueueTypes.Rehabilitated}}
+      >
+        Обеспечение жильём детей-сирот
+      </a>
+    </div>
+
+    <div class="queue-position__content-container">
+      {{#if (not-eq activeQueue.length 0) }}
+        {{#each activeQueue as |model index|}}
+          {{queue-element
+            model=model
+            index=index
+          }}
+        {{/each}}
+      {{else}}
+        {{queue-element
+          index=1
+        }}
+      {{/if}}
+    </div>
+
+  </div>
+</div>
+
+{{outlet}}
